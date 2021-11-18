@@ -23,12 +23,13 @@ export default class SfmcApiHelper
         Utils.logInfo("Using specified ClientID and ClientSecret to get OAuth token...");
 
         let headers = {
-            'Content-Type': 'application/json;charset=UTF-8',
+            'Content-Type': 'application/json',
         };
 
         let postBody = {
-            'clientId': clientId,
-            'clientSecret': clientSecret
+            "grant_type": "client_credentials",
+            'client_id': 'yw4czvdn5lrw7m2gpmbtc4og',
+            'client_secret': 'yaCowGK8kwgXcFwdH94i8NYg',
         };
 
         return self.getOAuthTokenHelper(headers, postBody);
@@ -68,7 +69,7 @@ export default class SfmcApiHelper
         return new Promise<any>((resolve, reject) =>
         {
             // POST to Marketing Cloud REST Auth service and get back an OAuth access token.
-            let sfmcAuthServiceApiUrl = "https://auth.exacttargetapis.com/v1/requestToken";
+            let sfmcAuthServiceApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.auth.marketingcloudapis.com/v2/token";
             axios.post(sfmcAuthServiceApiUrl, postBody, {"headers" : headers})
             .then((response: any) => {
                 // success
