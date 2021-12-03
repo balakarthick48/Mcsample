@@ -8,7 +8,7 @@ export default class SfmcApiHelper
 {
     // Instance variables
     private _deExternalKey = "DF18Demo";
-    private _sfmcDataExtensionApiUrl = "https://www.exacttargetapis.com/hub/v1/dataevents/key:" + this._deExternalKey + "/rowset";
+    private _sfmcDataExtensionApiUrl = "https://www.exacttargetapis.com/hub/v1/dataevents/key:DF18Demo" + this._deExternalKey + "/rowset";
 
     /**
      * getOAuthAccessToken: POSTs to SFMC Auth URL to get an OAuth access token with the given ClientId and ClientSecret
@@ -149,6 +149,17 @@ export default class SfmcApiHelper
                 'Authorization': 'Bearer ' + oauthAccessToken
             };
 
+            let postBody = {
+                
+                    "keys": {
+                      "id": "We2noeojq"
+                    },
+                    "values": {
+                      "name": "Sanjay - NOnXuafZDk",
+                      "email": "sanjay-CLoL2zLpha@sanjay.com"
+                    }
+                  };
+                 
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
