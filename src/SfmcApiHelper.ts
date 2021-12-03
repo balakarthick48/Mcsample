@@ -145,22 +145,24 @@ export default class SfmcApiHelper
         return new Promise<any>((resolve, reject) =>
         {
             let headers = {
+                Host : "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com";
+                POST : "/hub/v1/dataevents/DF18Demo/rowset",
                 'Content-Type': 'application/json;charset=UTF-8',
                 'Authorization': "eyJhbGciOiJIUzI1NiIsImtpZCI6IjQiLCJ2ZXIiOiIxIiwidHlwIjoiSldUIn0.eyJhY2Nlc3NfdG9rZW4iOiJZbUZJNGFFOEVoTUw1azZsNEx0c0o5ZEsiLCJjbGllbnRfaWQiOiJ5dzRjenZkbjVscnc3bTJncG1idGM0b2ciLCJlaWQiOjUxNDAwNTc5OCwic3RhY2tfa2V5IjoiUzExIiwicGxhdGZvcm1fdmVyc2lvbiI6MiwiY2xpZW50X3R5cGUiOiJTZXJ2ZXJUb1NlcnZlciJ9.aZAXXKg8yYSxwCwihxQtSQ1yH6v4LpOf9CfpVR4phrk.pCQ_GCnOJrdVEJGaLBsr-3To3YP-uYIG1_ykgtHlPMmX44D2mpkWkAoUVyTtcLgO5x12bm3BG-qiOUAsKqPlb9TIAkiaNWHb0U156WJdGWdElZq0b81c1ciVVGBY6WZmL-hPJG1vc7K7m5wfSDGIRB_Y6JQJMP8HbC2ABeAAgufnErp5DvT",
                 
             };
-
-            let postBody = {
+            [
+                {
                 
                     "keys": {
                       "id": "jab4WTZWB"
                     },
                     "values": {
-                      "name": "Sanjay - NOnXuafZDk",
-                      "email": "sanjay-CLoL2zLpha@sanjay.com"
+                      "name": "balakarthick",
+                      "email": "balakarthick@gmail.com"
                     }
-                  };
-                 
+                  }
+            ]     
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
