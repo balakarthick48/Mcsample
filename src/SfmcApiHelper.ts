@@ -161,8 +161,19 @@ export default class SfmcApiHelper
                       "name": "balakarthick",
                       "email": "balakarthick@gmail.com"
                     }
+                  },
+               
+                {
+                
+                    "keys": {
+                      "id": "jab4WTZWB"
+                    },
+                    "values": {
+                      "name": "balakarthick",
+                      "email": "balakarthick@gmail.com"
+                    }
                   }
-            ]     
+                ]
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
