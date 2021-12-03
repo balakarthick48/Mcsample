@@ -152,7 +152,7 @@ export default class SfmcApiHelper
             let postBody = {
                 
                     "keys": {
-                      "id": "DF18Demo"
+                      "id": "jab4WTZWB"
                     },
                     "values": {
                       "name": "Sanjay - NOnXuafZDk",
