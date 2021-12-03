@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <% include ./partials/header.ejs %>
 </head>
 
 <body>
-
-
-  <!-- Demo steps -->
-  <div class="container">
-
-    <div class="card mt-3">
-      <div class="card-block">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-3">This web app is running outside the Marketing Cloud</h6>
-          <h6 class="card-subtitle mb-3">You can host this web app anywhere you wish (e.g your computer, data center or the cloud) and use REST APIs to interact with Marketing Cloud.</h6>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Step 1 -->
-    <% include ./partials/create-de.ejs %>
-  
-    <!-- Step 2 -->
-    <% include ./partials/get-api-key.ejs %>
 
     <!-- Step 3 -->
     <div class="card mt-3">
@@ -41,42 +23,14 @@
                     <button type="button" id="btnGetOauthToken" class="btn btn-primary"
                       onclick="doRestGet('/apidemooauthtoken','textOauthPostResponse')">EXECUTE REQUEST</button>
                   </th>
-                  <th style="width: 50%" scope="col">RESPONSE</th>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <h6>URL</h6>
-                    <pre>
-POST
-https://auth.exacttargetapis.com/v1/requestToken</pre>
-                    <p>
-                    <h6>Headers</h6>
-                    <pre>Content-Type: application/json</pre>
-                    <p>
-                    <h6>Request Body</h6>
-                    <pre>
-{
-  "clientId": <mark>YOUR_CLIENT_ID</mark>,
-  "clientSecret": <mark>YOUR_CLIENT_SECRET</mark>
-}</pre>
-                  </td>
-                  <td><pre id="textOauthPostResponse">Click <kbd>EXECUTE REQUEST</kbd> to see response.</pre></td>
-                </tr>
-              </tbody>
-            </table>
+             
           </div>
 
-          <p class="card-text"><span class="fa fa-thumbs-o-up text-success"></span>&nbsp;You have everything you need to call the Marketing Cloud REST APIs to load sample data into your Data Extension!</p>
 
         </div>
       </div>
     </div>
-
-    <!-- Step 4 -->
-    <% var stepTitle = 'Step 4: Load sample data'; %>
-    <% include ./partials/load-data.ejs %>
       
   </div>
 
