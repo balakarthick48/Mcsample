@@ -10,10 +10,8 @@
     <div class="card-block">
       <div class="card-body">
         <div class="table-responsive">       
-                <th style="width: 50%" scope="col">
                   <button type="button" id="btnGetOauthToken" class="btn btn-primary"
                     onclick="doRestGet('/apidemooauthtoken','textOauthPostResponse')">EXECUTE REQUEST</button>
-                </th>
                 <td><pre id="textOauthPostResponse">Click <kbd>EXECUTE REQUEST</kbd> to see response.</pre></td>
         </div>
 
@@ -24,6 +22,8 @@
     <div class="table-responsive">       
       <button type="button" id="btnLoadData" class="btn btn-primary"
       onclick="doRestGet('/loaddata','textLoadDataPostResponse')">EXECUTE REQUEST</button>
+      <td><pre id="textLoadDataPostResponse">Click <kbd>EXECUTE REQUEST</kbd> to see response.</pre></td>
+
     </div>
 </body>
 </html>
