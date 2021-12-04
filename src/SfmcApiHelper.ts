@@ -8,7 +8,7 @@ export default class SfmcApiHelper
 {
     // Instance variables
     private _deExternalKey = "63183372-7A7D-4569-9108-DDFDF56B092E";
-    private _sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/key: 63183372-7A7D-4569-9108-DDFDF56B092E" + this._deExternalKey + "/rowset";
+    private _sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/key: " + this._deExternalKey + "/rowset";
 
     /**
      * getOAuthAccessToken: POSTs to SFMC Auth URL to get an OAuth access token with the given ClientId and ClientSecret
@@ -173,6 +173,7 @@ export default class SfmcApiHelper
                   }
                 ]
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
+            let sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/key: " + this._deExternalKey + "/rowset";
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
                 // success
