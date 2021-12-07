@@ -173,7 +173,6 @@ export default class SfmcApiHelper
                   }
                 ]
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
-            let sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/key: " + this._deExternalKey + "/rowset";
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
                 // success
