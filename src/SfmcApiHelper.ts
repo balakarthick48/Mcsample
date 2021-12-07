@@ -180,6 +180,7 @@ export default class SfmcApiHelper
                 // success
                 let accessToken = response.data.accessToken;
                 let tokenExpiry = new Date();
+                tokenExpiry.setSeconds(tokenExpiry.getSeconds() + response.data.expiresIn);
                 Utils.logInfo("Successfully loaded sample data into Data Extension!");
 
                 resolve(
