@@ -138,7 +138,6 @@ export default class SfmcApiHelper
     private loadDataHelper(oauthAccessToken: string, jsonData: string) : Promise<any>    
     {
         let self = this;
-        let _sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/11954DDF-28A3-4FE8-BF77-646C37506621";
         Utils.logInfo("loadDataHelper called.");
         Utils.logInfo("Loading sample data into Data Extension: " + self._deExternalKey);
         Utils.logInfo("Using OAuth token: " + oauthAccessToken);
@@ -174,15 +173,18 @@ export default class SfmcApiHelper
                   }
                 ]
             // POST to Marketing Cloud Data Extension endpoint to load sample data in the POST body
+            let _sfmcDataExtensionApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.rest.marketingcloudapis.com/hub/v1/dataevents/11954DDF-28A3-4FE8-BF77-646C37506621";
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
                 // success
                 let accessToken = response.data.accessToken;
+                let tokenExpiry = new Date();
                 Utils.logInfo("Successfully loaded sample data into Data Extension!");
 
                 resolve(
                 {
                     oauthAccessToken: accessToken,
+                    oauthAccessTokenExpiry: tokenExpiry,
                     status: response.status,
                     statusText: response.statusText + "\n" + Utils.prettyPrintJson(JSON.stringify(response.data))
                 });
