@@ -177,10 +177,12 @@ export default class SfmcApiHelper
             axios.post(self._sfmcDataExtensionApiUrl, jsonData, {"headers" : headers})
             .then((response: any) => {
                 // success
+                let accessToken = response.data.accessToken;
                 Utils.logInfo("Successfully loaded sample data into Data Extension!");
 
                 resolve(
                 {
+                    oauthAccessToken: accessToken,
                     status: response.status,
                     statusText: response.statusText + "\n" + Utils.prettyPrintJson(JSON.stringify(response.data))
                 });
