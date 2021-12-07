@@ -109,10 +109,11 @@ export default class SfmcApiHelper
         let self = this;
         let sessionId = req.session.id;
         Utils.logInfo("loadData entered. SessionId = " + sessionId);
+        Utils.logInfo("Using OAuth token: " + req.session.oauthAccessToken);
+
 
         if (req.session.oauthAccessToken)
         {
-            Utils.logInfo("Using OAuth token: " + req.session.oauthAccessToken);
             self.loadDataHelper(req.session.oauthAccessToken, req.session.sampleJsonData)
             .then((result) => {
                 res.status(result.status).send(result.statusText);
@@ -121,7 +122,7 @@ export default class SfmcApiHelper
                 res.status(500).send(err);
             });
         }
-        else (res.session.oauthAccessToken)
+        else 
         {
             // error
             let errorMsg = "OAuth Access Token *not* found in session.\nPlease complete previous demo step\nto get an OAuth Access Token."; 
