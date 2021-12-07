@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import express = require("express");
+import session = require('express-session');
 import Utils from './Utils';
 
 export default class SfmcApiHelper
