@@ -121,7 +121,7 @@ export default class SfmcApiHelper
                 res.status(500).send(err);
             });
         }
-        else
+        else (res.session.oauthAccessToken)
         {
             // error
             let errorMsg = "OAuth Access Token *not* found in session.\nPlease complete previous demo step\nto get an OAuth Access Token."; 
@@ -180,7 +180,6 @@ export default class SfmcApiHelper
                 // success
                 let accessToken = response.data.accessToken;
                 let tokenExpiry = new Date();
-                tokenExpiry.setSeconds(tokenExpiry.getSeconds() + response.data.expiresIn);
                 Utils.logInfo("Successfully loaded sample data into Data Extension!");
 
                 resolve(
