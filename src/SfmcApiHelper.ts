@@ -77,7 +77,7 @@ export default class SfmcApiHelper
                 let accessToken = response.data.accessToken;
                 let tokenExpiry = new Date();
                 tokenExpiry.setSeconds(tokenExpiry.getSeconds() + response.data.expiresIn);
-                Utils.logInfo("Got OAuth token: " + response.data.accessToken + ", expires = " +  tokenExpiry);
+                Utils.logInfo("Got OAuth token: " + response.data("accessToken") + ", expires = " +  tokenExpiry);
 
                 resolve(
                 {
