@@ -74,7 +74,7 @@ export default class SfmcApiHelper
             axios.post(sfmcAuthServiceApiUrl, postBody, {"headers" : headers})
             .then((response: any) => {
                 // success
-                console.log("got accesstoken" + JSON.stringify(response));
+                console.log("got accesstoken" +JSON.stringify(response.data));
                 let accessToken = response.data.accessToken;
                 let tokenExpiry = new Date();
                 tokenExpiry.setSeconds(tokenExpiry.getSeconds() + response.data.expiresIn);
